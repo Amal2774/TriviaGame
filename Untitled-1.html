@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Trivia Game</title>
-    <link rel="stylesheet" href="./assets/css/reset.css"
+    <link rel="stylesheet" href="./assets/css/reset.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-        crossorigin="anonymous">
+    crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/css/style.css">
 
 </head>
@@ -17,7 +17,7 @@
     <div class="container">
         <div class="row">
             <h1 class="header col-md-12">
-                Trivia Game!!
+                Olympics Trivia!
             </h1>
         </div>
 
@@ -31,21 +31,19 @@
             </div>
         </div>
 
-        <div class="row">
-            <div id="question" class="col-md-12"> </div>
-        </div>
+        <div class="questionsDiv">
+            <div class="row">
+                <div class="col-md-4"></div>
 
-        <div class="row">
-            <div class="col-md-4"></div>
+                <div id="quiz" class="col-md-4"></div>
 
-            <div id="quiz" class="col-md-4"></div>
-
-            <div class="col-md-4"></div>
+                <div class="col-md-4"></div>
+            </div>
         </div>
 
         <div class="row">    
             <div class="col-md-3"></div>
-                <button id="submit">Submit</button>
+                <button id="score">Score</button>
             </div>
 
             <div id="score" class="col-md-3"></div>
@@ -53,19 +51,13 @@
             <div class="col-md-3"></div>
             <div class="col-md-3"></div>
 
+            <div id="results"></div>
+
         </div>
 
-
-
-
-
-
-
-
-
     </div>
-
-    <script type="text/javascript" src="./Untitledjs.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="./assets/javascript/Untitledjs.js"></script>
 </body>
 
 </html>

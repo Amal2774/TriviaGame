@@ -1,7 +1,13 @@
 .body {
-    background-image: url("../images/torchesbackground.jpeg");
+    background-image: url("../images/olympicRingsFireworks.jpg");
     background-repeat: no-repeat, repeat;
     background-size: cover;
     color: white;
-}
+};
+
+.questionsDiv{
+    background-color: black;
+    opacity: .5;
+    z-index: auto;
+};
 
