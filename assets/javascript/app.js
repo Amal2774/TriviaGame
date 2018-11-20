@@ -1,7 +1,4 @@
-var counter = 0;
-var timeLeft = 30;
-
-var triviaQuestions = [
+var myQuestions = [
     {
         question: "When was the last time that tug of war was an official Olympic sport?",
 
@@ -45,10 +42,10 @@ var triviaQuestions = [
         question: "What was the motto of the Beijing games?",
 
         answers: {
-            a: "Unity in Sport",
-            b: "Inspire the World",
-            c: "One World, One Dream",
-            d: "Dare to Dream",
+            a: "Unity in Sport ",
+            b: "Inspire the World ",
+            c: "One World, One Dream ",
+            d: "Dare to Dream ",
         },
 
         correctAnswer: "c",
@@ -92,67 +89,110 @@ var triviaQuestions = [
 
         correctAnswer: "d",
     },
-
 ];
 
-function ding() {
-    var ding = ("../images/front-desk-bells-daniel_simon.mp3");
-    ding.play();
+var questionContainer = document.getElementById('question');
+var quizContainer = document.getElementById('quiz');
+var resultsContainer = document.getElementById('results');
+var scoreButton = document.getElementById('score');
+var counter = 0;
+var timeLeft = 90;
+var numCorrect = 0;
+var interval;
+var timer = $("#timer");
+
+
+function olympicTheme() {
+var ding = ("../images/olympicTheme");
+ding.play();
 };
 
 function setUpTimer() {
 
-    var timer = $("#timer");
     timer.html(timeLeft - counter);
 
-    var interval = setInterval(timeIt, 1000);
+    interval = setInterval(timeIt, 1000);
 
-    function timeIt() {
-        counter++;
-        timer.html(timeLeft - counter);
+};
 
-        if (counter == timeLeft) {
-            ding();
-            clearInterval(interval);
-            counter = 0;
-        };
+function timeIt() {
+    counter++;
+    timer.html(timeLeft - counter);
 
+    if (counter == timeLeft) {
+        //ding();
+        clearInterval(interval);
+        counter = 0;
     };
 
 };
 
-setUpTimer();
+function showQuestions(myQuestions, quizContainer){
 
-function displayQuestions(){
+    setUpTimer();
+
     var output = [];
     var answers;
 
-    setUpTimer();
-    
-    for (var i=0; i<triviaQuestions.length; i++){
-        answers = [];
+
+    for(var i=0; i<myQuestions.length; i++){
         
-        for (letter in questions[i].answers){
-            answers.push
-            "<label>"
-                + '<input type="radio" name="question'+i+'" value="'+letter+'">'
-                + letter + ': '
-                + questions[i].answers[letter]
-            "</label>"
-    
+        answers = [];
+
+        for(letter in myQuestions[i].answers){
+
+            answers.push(
+                '<label>'
+                    + '<input type="radio" name="question'+i+'" value="'+letter+'">'
+                    + letter + '. '
+                    + myQuestions[i].answers[letter]
+                + '</label>'
+            );
         };
 
         output.push(
-			'<div>' + questions[i].question + '</div>'
-			+ '<div>' + answers.join('') + '</div>'
+            '<div class="question">' + myQuestions[i].question + '</div>'
+            + '<div class="answers">' + answers.join('') + '</div>'
         );
-        
-        quizContainer.innerHTML = output.join('');
-
     };
+
+     quizContainer.innerHTML = output.join('');
 };
 
-showQuestions(questions, quizContainer);
+function showResults(questions, quizContainer, resultsContainer){
 
+    var answerContainers = quizContainer.querySelectorAll('.answers');
+    
+    var userAnswer = '';
+    var numCorrect = 0;
+    
+    for(var i=0; i<myQuestions.length; i++){
 
+        userAnswer = (answerContainers[i].querySelector('input[name=question'+i+']:checked')||{}).value;
+        
+        if(userAnswer===myQuestions[i].correctAnswer){
 
+            numCorrect++;
+
+        }
+
+        else{
+
+            answerContainers[i].style.color = 'red';
+        }
+    }
+
+    resultsContainer.innerHTML = numCorrect + ' out of ' + myQuestions.length;
+};
+
+scoreButton.onclick = function(){
+    showResults(myQuestions, quizContainer, resultsContainer);
+};
+
+function generateQuiz(questions, quizContainer, resultsContainer, scoreButton){
+
+	showQuestions(myQuestions, quizContainer);
+
+};
+
+generateQuiz(myQuestions, quizContainer, resultsContainer, scoreButton);

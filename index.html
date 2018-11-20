@@ -1,27 +1,24 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Trivia Game</title>
+    <link rel="stylesheet" href="./assets/css/reset.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-        crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/css/style.css">
+    crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/style.css">
 
 </head>
 
-<body>
-    <header class="header">
-        Trivia!!!
-    </header>
-
-    <section class="container">
+<body class="body">
+    <div class="container">
         <div class="row">
-            <h3 class="col-md-12">
-                Trivia!!
-            </h3>
+            <h1 class="header col-md-12">
+                Olympics Trivia!
+            </h1>
         </div>
 
         <div class="row">
@@ -34,29 +31,33 @@
             </div>
         </div>
 
-        <div class="row">
-            <div id="questionDiv" class="col-md-12">
-                Question goes here
-            </div>
+        <div class="questionsDiv">
             <div class="row">
                 <div class="col-md-4"></div>
 
-                <div id="answersDiv" class="col-md-4">
-                    Answer options go here
-                </div>
+                <div id="quiz" class="col-md-4"></div>
 
                 <div class="col-md-4"></div>
             </div>
         </div>
 
+        <div class="row">    
+            <div class="col-md-3"></div>
+                <button id="score">Score</button>
+            </div>
 
-    </section>
+            <div id="score" class="col-md-3"></div>
 
-    <script src="http://code.jquery.com/jquery-3.3.1.slim.js" integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA="
-        crossorigin="anonymous"></script>
+            <div class="col-md-3"></div>
+            <div class="col-md-3"></div>
 
-    <script type="text/javascript" src="./assets/javascript/app.js"></script>
+            <div id="results"></div>
 
+        </div>
+
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="./assets/javascript/Untitledjs.js"></script>
 </body>
 
 </html>
