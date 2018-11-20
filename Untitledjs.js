@@ -97,11 +97,34 @@ var resultsContainer = document.getElementById('results');
 var submitButton = document.getElementById('submit');
 var counter = 0;
 var timeLeft = 30;
-   var numCorrect = 0;
+var numCorrect = 0;
+
+function setUpTimer() {
+
+    var timer = $("#timer");
+    timer.html(timeLeft - counter);
+
+    var interval = setInterval(timeIt, 1000);
+
+    function timeIt() {
+        counter++;
+        timer.html(timeLeft - counter);
+
+        if (counter == timeLeft) {
+            ding();
+            clearInterval(interval);
+            counter = 0;
+        };
+
+    };
+
+};
 
 function generateQuiz(questions, quizContainer, resultsContainer, submitButton){
 
 	function showQuestions(myQuestions, quizContainer){
+
+        setUpTimer();
 
         	// we'll need a place to store the output and the answer choices
         var output = [];

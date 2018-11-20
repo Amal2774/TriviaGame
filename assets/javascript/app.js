@@ -127,6 +127,8 @@ function displayQuestions(){
     var output = [];
     var answers;
 
+    setUpTimer();
+    
     for (var i=0; i<triviaQuestions.length; i++){
         answers = [];
         
