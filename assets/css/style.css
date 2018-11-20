@@ -1,0 +1,7 @@
+.body {
+    background-image: url("../images/torchesbackground.jpeg");
+    background-repeat: no-repeat, repeat;
+    background-size: cover;
+    color: white;
+}
+
